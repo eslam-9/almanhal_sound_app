@@ -10,7 +10,7 @@ class AppRoute {
       case Login.routeName:
         return MaterialPageRoute(builder: (context) => const Login());
       default:
-      return MaterialPageRoute(builder: (context)=>const Placeholder());  
+        return MaterialPageRoute(builder: (context) => const Placeholder());
     }
   }
 }

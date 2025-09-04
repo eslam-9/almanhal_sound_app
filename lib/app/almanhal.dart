@@ -18,7 +18,6 @@ class Almanhal extends StatelessWidget {
           debugShowCheckedModeBanner: false,
           title: 'Almanhal',
           theme: ThemeData(primaryColor: ColorManager.primaryColor),
-          home: Auht(),
           onGenerateRoute: AppRoute.generateRoute,
           initialRoute: Auht.routeName,
         );

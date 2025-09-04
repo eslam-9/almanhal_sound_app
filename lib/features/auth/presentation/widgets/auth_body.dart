@@ -1,5 +1,3 @@
-import 'package:almanhal/core/theme/color_manager.dart';
-import 'package:almanhal/core/theme/font_manager.dart';
 import 'package:almanhal/features/auth/presentation/screens/login.dart';
 import 'package:almanhal/features/auth/presentation/widgets/custom_button.dart';
 import 'package:flutter/material.dart';
@@ -26,7 +24,12 @@ class AuthBody extends StatelessWidget {
 
             SizedBox(height: 65.h),
 
-            CustomButton(onpressed: () {}, text: 'sign up'),
+            CustomButton(
+              onpressed: () {
+                print('sign up');
+              },
+              text: 'sign up',
+            ),
           ],
         ),
       ),

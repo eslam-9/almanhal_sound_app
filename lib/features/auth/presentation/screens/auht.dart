@@ -13,6 +13,7 @@ class Auht extends StatelessWidget {
         appBar: AppBar(
           title: Text('Almanhal', style: FontManager.homeTitle),
           centerTitle: true,
+          automaticallyImplyLeading: false,
         ),
         body: AuthBody(),
       ),
