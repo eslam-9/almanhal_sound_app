@@ -1,20 +1,23 @@
 import 'package:almanhal/features/auth/domain/entities/user.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
 
 class UserModel {
   final String email;
   final String name;
+  final String id;
 
-  UserModel({required this.email, required this.name});
+  UserModel({required this.email, required this.name, required this.id});
 
   factory UserModel.fromJson(Map<String, dynamic> json) {
     return UserModel(
       email: json['email'] as String,
       name: json['name'] as String,
+      id: json['id'] as String,
     );
   }
 
   Map<String, dynamic> toJson() {
-    return {'email': email, 'name': name};
+    return {'email': email, 'name': name, 'id': id};
   }
 
   factory UserModel.fromSupabaseUser(User user) {
@@ -28,6 +31,6 @@ class UserModel {
     );
   }
   UserEntitie toEntitie() {
-    return UserEntitie(email: email, name: name);
+    return UserEntitie(email: email, name: name, id: id);
   }
 }

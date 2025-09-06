@@ -1,4 +1,5 @@
 import 'package:almanhal/features/auth/presentation/screens/login.dart';
+import 'package:almanhal/features/auth/presentation/screens/signup.dart';
 import 'package:almanhal/features/auth/presentation/widgets/custom_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -26,7 +27,7 @@ class AuthBody extends StatelessWidget {
 
             CustomButton(
               onpressed: () {
-                print('sign up');
+                Navigator.pushNamed(context, Signup.routeName);
               },
               text: 'sign up',
             ),

@@ -7,22 +7,24 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class Login extends ConsumerStatefulWidget {
-  const Login({super.key});
+class Signup extends ConsumerStatefulWidget {
+  const Signup({super.key});
 
-  static const String routeName = '/login';
+  static const String routeName = '/Signup';
   @override
-  ConsumerState<Login> createState() => _LoginState();
+  ConsumerState<Signup> createState() => _SignupState();
 }
 
-class _LoginState extends ConsumerState<Login> {
+class _SignupState extends ConsumerState<Signup> {
   final TextEditingController _email = TextEditingController();
+  final TextEditingController _name = TextEditingController();
   final TextEditingController _password = TextEditingController();
   final _formKey = GlobalKey<FormState>();
 
   @override
   void dispose() {
     _email.dispose();
+    _name.dispose();
     _password.dispose();
     super.dispose();
   }
@@ -33,7 +35,7 @@ class _LoginState extends ConsumerState<Login> {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: Text('Log In', style: FontManager.title),
+        title: Text('Sign up', style: FontManager.title),
       ),
       body: SafeArea(
         child: SingleChildScrollView(
@@ -63,6 +65,20 @@ class _LoginState extends ConsumerState<Login> {
                   controller: _email,
                 ),
                 SizedBox(height: 28.h),
+                Text('Name', style: FontManager.black18w400),
+                SizedBox(height: 12.h),
+                CustomFormField(
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return "name cannot be empety ";
+                    }
+                    return null;
+                  },
+                  hintText: "name",
+                  obscureText: false,
+                  controller: _name,
+                ),
+                SizedBox(height: 28.h),
                 Text('Password', style: FontManager.black18w400),
                 SizedBox(height: 12.h),
                 CustomFormField(
@@ -86,8 +102,9 @@ class _LoginState extends ConsumerState<Login> {
                 CustomButton(
                   onpressed: () {
                     if (_formKey.currentState!.validate()) {
-                      authNotifier.signIn(
+                      authNotifier.signUp(
                         _email.text.toString(),
+                        _name.text.toString(),
                         _password.text.toString(),
                       );
                     }

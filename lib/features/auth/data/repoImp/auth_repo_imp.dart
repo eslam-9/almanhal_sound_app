@@ -1,6 +1,5 @@
 import 'package:almanhal/features/auth/domain/entities/user.dart';
 import 'package:almanhal/features/auth/domain/repo/auth_repo.dart';
-import 'package:supabase_flutter/supabase_flutter.dart';
 import '../datasource/supabase_auth.dart';
 
 class AuthRepoImpWithSupabase implements AuthRepo {
@@ -36,6 +35,15 @@ class AuthRepoImpWithSupabase implements AuthRepo {
         name: name,
       );
       return user.toEntitie();
+    } catch (e) {
+      throw Exception('Authentication failed');
+    }
+  }
+
+  @override
+  Future<void> logOut() async {
+    try {
+      await supabaseAuth.logOut();
     } catch (e) {
       throw Exception('Authentication failed');
     }
