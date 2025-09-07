@@ -28,4 +28,12 @@ class AuthUsecase {
       throw Exception('Authentication failed');
     }
   }
+
+  Future<void> logOut() async {
+    try {
+      await authRepo.logOut();
+    } catch (e) {
+      throw Exception('Authentication failed');
+    }
+  }
 }

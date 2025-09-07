@@ -7,4 +7,5 @@ abstract class AuthRepo {
     required String password,
   });
   Future<UserEntitie> login({required String email, required String password});
+  Future<void> logOut();
 }

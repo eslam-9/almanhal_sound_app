@@ -37,4 +37,8 @@ class SupabaseAuth {
     }
     return UserModel.fromSupabaseUser(user);
   }
+
+  Future<void> logOut() async {
+    await _client.auth.signOut();
+  }
 }
